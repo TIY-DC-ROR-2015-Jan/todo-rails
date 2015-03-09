@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 20150309020538) do
     t.integer  "list_id"
     t.string   "description"
     t.date     "due_on"
-    t.boolean  "complete"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "completed_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "todos", ["list_id"], name: "index_todos_on_list_id"

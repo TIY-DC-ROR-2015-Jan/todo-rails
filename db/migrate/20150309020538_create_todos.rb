@@ -4,7 +4,7 @@ class CreateTodos < ActiveRecord::Migration
       t.belongs_to :list, index: true
       t.string :description
       t.date :due_on
-      t.boolean :complete
+      t.datetime :completed_at
 
       t.timestamps null: false
     end

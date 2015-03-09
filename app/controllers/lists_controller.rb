@@ -12,29 +12,29 @@ class ListsController < ApplicationController
     @list = current_user.lists.new
   end
 
+  def edit
+  end
+
   def create
-    @list = current_user.lists.new create_params
+    @list = current_user.lists.new list_params
     if @list.save
-      redirect_to @list, notice: 'List created'
+      redirect_to @list, notice: 'List was successfully created.'
     else
       render :new
     end
   end
 
-  def edit
-  end
-
   def update
-    if @list.update update_params
-      redirect_to @list, notice: 'List updated'
+    if @list.update list_params
+      redirect_to @list, notice: 'List was successfully updated.'
     else
       render :edit
     end
   end
 
-  def delete
-    @list.delete
-    redirect_to lists_path, danger: 'List deleted'
+  def destroy
+    @list.destroy
+    redirect_to lists_path, notice: 'List was successfully destroyed.'
   end
 
 private
@@ -43,11 +43,7 @@ private
     @list = current_user.lists.find params[:id]
   end
 
-  def create_params
+  def list_params
     params.require(:list).permit(:title)
-  end
-
-  def update_params
-    create_params
   end
 end

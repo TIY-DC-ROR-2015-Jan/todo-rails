@@ -14,6 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 
 group :development, :test do
+  gem 'faker'
   gem 'pry-rails'
   gem 'quiet_assets'
   gem 'spring'
