@@ -14,6 +14,11 @@ class TodosController < ApplicationController
     end
   end
 
+  def show
+    @todo = @list.todos.find params[:id]
+    render json: @todo.to_json
+  end
+
   def complete
     todo = @list.todos.find params[:id]
     todo.complete!
