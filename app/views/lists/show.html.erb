@@ -29,7 +29,9 @@
           <% if item.complete? %>
             <%= item.completed_at %>
           <% else %>
-            <%= button_to "Mark Complete", complete_list_todo_path(@list, item), class: "btn btn-danger" %>
+            <%= form_tag complete_list_todo_path(@list, item) do %>
+              <button class="btn btn-danger mark-complete" data-todo-id="<%= item.id %>" data-list-id="<%= @list.id %>">Mark Complete</button>
+            <% end %>
           <% end %>
         </td>
       </tr>

@@ -19,9 +19,10 @@ class TodosController < ApplicationController
   end
 
   def complete
-    todo = @list.todos.find params[:id]
-    todo.complete!
-    redirect_to @list, notice: 'Todo completed'
+    @message = ["Got it!", "Nice work!", "Keep it up!", "Attaboy!"].sample
+    @todo = @list.todos.find params[:id]
+    @todo.complete!
+    #redirect_to @list, notice: 'Todo completed'
   end
 
 private
